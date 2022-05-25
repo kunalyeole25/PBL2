@@ -20,5 +20,7 @@ public class App {
         mw.setResizable(false);
         //mw.maximumSize(1024, 720);
         mw.setVisible(true);
+        
+        
     }
 }
