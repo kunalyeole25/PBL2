@@ -13,17 +13,17 @@ public class App {
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
         mainWindow mw = new mainWindow();
-        loginWindow dialog = new loginWindow();
-        mw.setSize(800,600);
+        //loginWindow dialog = new loginWindow();
+        mw.setSize(1000,510);
         //Rectangle bounds = new Rectangle(1024,720);
         Dimension maximumSize = new Dimension(1024,720);
         mw.setMaximumSize(maximumSize);
         mw.setResizable(false);
         //mw.maximumSize(1024, 720);
         mw.setVisible(true);
-              dialog.setDefaultCloseOperation(loginWindow.HIDE_ON_CLOSE);
-      dialog.setSize(400,400);  
-      dialog.setVisible(true);
+              //dialog.setDefaultCloseOperation(loginWindow.HIDE_ON_CLOSE);
+      //dialog.setSize(400,400);  
+      //dialog.setVisible(true);
         
     }
 }
