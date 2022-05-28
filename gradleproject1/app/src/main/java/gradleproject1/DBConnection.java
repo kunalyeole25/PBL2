@@ -26,7 +26,7 @@ public class DBConnection
             Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://192.46.211.19:3306/zerinfi1_panda_clg","zerinfi1_panda","pandazti#1234");
+             Connection connection = DriverManager.getConnection("jdbc:mysql://192.46.211.19:3306/zerinfi1_panda_clg","zerinfi1_panda","pandazti#1234");
         } catch (SQLException ex) {
             Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
