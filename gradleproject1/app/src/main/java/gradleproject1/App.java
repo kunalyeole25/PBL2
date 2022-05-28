@@ -4,15 +4,19 @@
 package gradleproject1;
 
 import java.awt.Dimension;
+import java.awt.event.WindowEvent;
+import static java.lang.Thread.sleep;
+import java.net.UnknownHostException;
 
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
     //Dimension dimension = new Dimension(1024, 720);
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException, UnknownHostException {
         System.out.println(new App().getGreeting());
         mainWindow mw = new mainWindow();
+        loginWindow lw = new loginWindow();
         //loginWindow dialog = new loginWindow();
         mw.setSize(1000,510);
         //Rectangle bounds = new Rectangle(1024,720);
@@ -20,7 +24,26 @@ public class App {
         mw.setMaximumSize(maximumSize);
         mw.setResizable(false);
         //mw.maximumSize(1024, 720);
+        lw.setVisible(true);
+        
+        while(true)
+        {
+            Thread.sleep(500);
+            if(lw.getLoginStatus() == 1)
+            {
+                System.out.println("[DEBUGPOINT]main window"); 
+                          lw.setVisible(false);
+                          break;
+            }
+            else if(lw.getLoginStatus() == 0)
+            {
+                System.out.println("[DEBUGPOINT]not main window");
+
+            }
+        }
         mw.setVisible(true);
+        //databaseController dbcontroller = new databaseController();
+        databaseController.connectDB();
               //dialog.setDefaultCloseOperation(loginWindow.HIDE_ON_CLOSE);
       //dialog.setSize(400,400);  
       //dialog.setVisible(true);
