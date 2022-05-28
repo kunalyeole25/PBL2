@@ -8,8 +8,10 @@ package gradleproject1;
  *
  * @author sdidd
  */
-public class loginWindow extends javax.swing.JFrame {
+public class loginWindow extends javax.swing.JFrame
+{
 
+    public int isLoggedin = 0;
     /**
      * Creates new form loginWindow
      */
@@ -48,6 +50,7 @@ public class loginWindow extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jTabbedPane1.setBackground(java.awt.SystemColor.controlHighlight);
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -226,7 +229,7 @@ public class loginWindow extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 
@@ -243,16 +246,45 @@ public class loginWindow extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        String username = returnUsername();
+        String password  = returnPassword();
+        returnLoginvalue(username,password);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jTextField5ActionPerformed
 
-    private int returnLoginvalue(String username,String password)
+    public String returnUsername()
+    {
+        String username = jTextField3.getText();
+        return username;
+        
+    }
+    public String returnPassword()
+    {
+        String password = jPasswordField1.getText();
+        return password;
+        
+    }
+    
+    public void returnLoginvalue(String username,String password)
     {
         //compare with database and send 1 if matches or 0 if not
+        if(username.equals("sdidd") && password.equals("sdidd"))
+        {
+            System.out.println("in side returnlogin value function");
+            isLoggedin = 1;
+        }
+
+        //compare with database and send 1 if matches or 0 if not
+    }
+    
+    public int getLoginStatus()
+    {
+        System.out.println(isLoggedin);
+        return isLoggedin;
     }
     
     /**
