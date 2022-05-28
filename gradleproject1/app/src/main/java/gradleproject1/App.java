@@ -3,17 +3,24 @@
  */
 package gradleproject1;
 
+
 import java.awt.Dimension;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import static java.lang.Thread.sleep;
 import java.net.UnknownHostException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
     //Dimension dimension = new Dimension(1024, 720);
-    public static void main(String[] args) throws InterruptedException, UnknownHostException {
+    public static void main(String[] args) throws InterruptedException, UnknownHostException, IOException, SQLException, ClassNotFoundException {
         System.out.println(new App().getGreeting());
         mainWindow mw = new mainWindow();
         loginWindow lw = new loginWindow();
@@ -25,7 +32,10 @@ public class App {
         mw.setResizable(false);
         //mw.maximumSize(1024, 720);
         lw.setVisible(true);
+        //DBConnection database = new DBConnection();
+        Connection connection = DBConnection.getConnection();
         
+        String sql = "create table student(name varchar(20))";
         while(true)
         {
             Thread.sleep(500);
@@ -42,11 +52,14 @@ public class App {
             }
         }
         mw.setVisible(true);
-        //databaseController dbcontroller = new databaseController();
-        databaseController.connectDB();
-              //dialog.setDefaultCloseOperation(loginWindow.HIDE_ON_CLOSE);
-      //dialog.setSize(400,400);  
-      //dialog.setVisible(true);
+        //databaseController dbcontroller = new DBConnection();
+       ;
+   
+            
+            //dialog.setDefaultCloseOperation(loginWindow.HIDE_ON_CLOSE);
+            //dialog.setSize(400,400);
+            //dialog.setVisible(true);
+  
         
     }
 }

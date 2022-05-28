@@ -51,6 +51,8 @@ public class loginWindow extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
+        setLocation(new java.awt.Point(600, 400));
+        setResizable(false);
 
         jTabbedPane1.setBackground(java.awt.SystemColor.controlHighlight);
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());

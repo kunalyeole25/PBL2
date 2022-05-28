@@ -4,7 +4,10 @@
  */
 package gradleproject1;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -17,6 +20,14 @@ public class mainWindow extends javax.swing.JFrame {
      */
     public mainWindow() {
         initComponents();
+       // setIconImage(new ImageIcon("images/pccoe.jpg").getImage());
+        // Create some frame instance
+      
+        // Create an image instance from the image that you want to use as icon for your app
+        //Image icon = Toolkit.getDefaultToolkit().getImage("C:\\Users\\sdidd\\Downloads\\pccoe_11zon.jpg");  
+
+        // And set it
+        //asetIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/pccoe.jpg")));
     }
 
     /**
@@ -62,6 +73,7 @@ public class mainWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(java.awt.Color.black);
         setResizable(false);
 
@@ -142,16 +154,15 @@ public class mainWindow extends javax.swing.JFrame {
                         .addGap(79, 79, 79)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButton2)
-                            .addGap(18, 18, 18)
-                            .addComponent(jButton1))
-                        .addComponent(jTextField1)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane2)
-                        .addComponent(jTextField2)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1))
+                    .addComponent(jTextField1)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jTextField2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
