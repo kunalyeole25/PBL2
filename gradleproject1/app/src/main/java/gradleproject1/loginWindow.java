@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package gradleproject1;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -273,12 +277,37 @@ public class loginWindow extends javax.swing.JFrame
     
     public void returnLoginvalue(String username,String password)
     {
-        //compare with database and send 1 if matches or 0 if not
-        if(username.equals("sdidd") && password.equals("sdidd"))
+        
+        //Database connection
+        Connection connection = DBConnection.getConnection();
+        
+        String sql = "select * from users";
+
+        try{
+        PreparedStatement pStatement = connection.prepareStatement(sql);
+        ResultSet resultSet = pStatement.executeQuery();
+        if(resultSet.next() == true)
         {
-            System.out.println("in side returnlogin value function");
-            isLoggedin = 1;
+        String pass = resultSet.getString(2);
+    
+        System.out.println(pass);
+               if(password.equals(pass))
+                {
+                    System.out.println("in side returnlogin value function");
+                    isLoggedin = 1;
+                }
         }
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+        
+        //compare with database and send 1 if matches or 0 if not
+        //mysql root password:sdidd
+        //mysql user root username:admin
+        //mysql root password:admin@1231
+ 
 
         //compare with database and send 1 if matches or 0 if not
     }

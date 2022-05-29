@@ -39,6 +39,7 @@ dependencies {
     implementation 'com.google.guava:guava:30.1.1-jre'
     
     implementation(files("C:\\mysql-connector-java-8.0.11.jar"))
+    implementation(files("C:\\rs2xml.jar"))
 }
 
 application {

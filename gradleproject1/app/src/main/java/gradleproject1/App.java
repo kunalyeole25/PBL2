@@ -33,9 +33,9 @@ public class App {
         //mw.maximumSize(1024, 720);
         lw.setVisible(true);
         //DBConnection database = new DBConnection();
-        Connection connection = DBConnection.getConnection();
+        //Connection connection = DBConnection.getConnection();
         
-        String sql = "create table student(name varchar(20))";
+        
         while(true)
         {
             Thread.sleep(500);
