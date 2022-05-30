@@ -6,6 +6,8 @@
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 public class DBConnection {
@@ -32,5 +34,34 @@ public class DBConnection {
 		} 
 		return null;
 		
+	}
+
+	public static int loginUser(String username, String password) {
+		// TODO Auto-generated method stub
+		Connection connection = getConnection();
+		String query = "select * from users where username = ?";
+		
+			try{
+	        PreparedStatement pStatement = connection.prepareStatement(query);
+	        pStatement.setString(1,username);
+	        
+	        ResultSet resultSet = pStatement.executeQuery();
+	        if(resultSet.next() == true)
+	        {
+	        String pass = resultSet.getString(2);
+	    
+	        System.out.println(pass);
+	               if(password.equals(pass))
+	                {
+	                    System.out.println("in side returnlogin value function");
+	                    return 1;
+	                }
+	        }
+	        }
+	        catch(SQLException e)
+	        {
+	            e.printStackTrace();
+	        }
+		return 0;
 	}
 }

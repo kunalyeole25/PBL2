@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -12,6 +13,7 @@ import javax.swing.JButton;
 import java.awt.ComponentOrientation;
 import java.awt.Component;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
 import javax.swing.GroupLayout;
@@ -26,6 +28,7 @@ public class loginWindow extends JFrame {
 	private JPasswordField passwordField;
 	private JPasswordField passwordField_1;
 	private JPasswordField passwordField_2;
+	private int isLoggedIn = 0;
 
 	/**
 	 * Launch the application.
@@ -47,6 +50,9 @@ public class loginWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public loginWindow() {
+		setAlwaysOnTop(true);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setResizable(false);
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		getContentPane().add(tabbedPane, BorderLayout.CENTER);
@@ -60,6 +66,12 @@ public class loginWindow extends JFrame {
 		JButton btnNewButton_1 = new JButton("Login");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String username = textField.getText();
+				String password = passwordField.getText();
+				int loggedIN = DBConnection.loginUser(username, password);
+				if (loggedIN == 1) {
+					isLoggedIn = 1;
+				}
 			}
 		});
 
@@ -101,17 +113,17 @@ public class loginWindow extends JFrame {
 		tabbedPane.addTab("New tab", null, panel_1, null);
 		tabbedPane.setEnabledAt(1, true);
 
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Register");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 
-		JLabel lblNewLabel_2 = new JLabel("New label");
+		JLabel lblNewLabel_2 = new JLabel("Username");
 
-		JLabel lblNewLabel_3 = new JLabel("New label");
+		JLabel lblNewLabel_3 = new JLabel("Password");
 
-		JLabel lblNewLabel_4 = new JLabel("New label");
+		JLabel lblNewLabel_4 = new JLabel("Confirm Password");
 
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
@@ -153,6 +165,7 @@ public class loginWindow extends JFrame {
 
 	public int getLoginStatus() {
 		// TODO Auto-generated method stub
-		return 1;
+		return isLoggedIn;
+		// return 1;
 	}
 }
