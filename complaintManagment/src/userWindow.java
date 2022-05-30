@@ -2,7 +2,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-public class loginWindow {
+public class userWindow {
 
 	private JFrame frame;
 
@@ -13,7 +13,7 @@ public class loginWindow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					loginWindow window = new loginWindow();
+					userWindow window = new userWindow();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -25,7 +25,7 @@ public class loginWindow {
 	/**
 	 * Create the application.
 	 */
-	public loginWindow() {
+	public userWindow() {
 		initialize();
 	}
 
